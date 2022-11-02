@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_18_153850) do
 
-  create_table "articles", force: :cascade do |t|
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_153850) do
     t.datetime "image_updated_at"
   end
 
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
     t.string "crypted_password", null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_153850) do
     t.index ["email"], name: "index_authors_on_email", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "author_name"
     t.text "body"
     t.integer "article_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_153850) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "tag_id"
     t.integer "article_id"
     t.datetime "created_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_153850) do
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
